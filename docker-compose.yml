@@ -73,6 +73,50 @@ services:
     networks:
       - babi_network
 
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    container_name: babi_cadvisor_V2
+    restart: unless-stopped
+    ports:
+      - "8081:8080"
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    networks:
+      - babi_network
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: babi_prometheus_V2
+    restart: unless-stopped
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    ports:
+      - "9090:9090"
+    networks:
+      - babi_network
+    depends_on:
+      - cadvisor
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: babi_grafana_V2
+    restart: unless-stopped
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+    ports:
+      - "3000:3000"
+    networks:
+      - babi_network
+    depends_on:
+      - prometheus
+
 networks:
   babi_network:
     driver: bridge
@@ -82,3 +126,5 @@ volumes:
     name: babiservice2_mysql_data
   vendor_data:
   node_modules_data:
+  prometheus_data:
+  grafana_data:
