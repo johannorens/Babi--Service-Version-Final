@@ -1,0 +1,7 @@
+.DS_Store
+.env
+.env.e
+vendor/
+node_modules/
+dist/
+storage/logs/
