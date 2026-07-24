@@ -5,3 +5,4 @@ vendor/
 node_modules/
 dist/
 storage/logs/
+Monitoring/.my.cnf

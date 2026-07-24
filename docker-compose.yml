@@ -117,6 +117,22 @@ services:
     depends_on:
       - prometheus
 
+  mysqld-exporter:
+    image: prom/mysqld-exporter:latest
+    container_name: babi_mysqld_exporter_V2
+    restart: unless-stopped
+    command:
+      - "--config.my-cnf=/cfg/.my.cnf"
+    volumes:
+      - ./monitoring/.my.cnf:/cfg/.my.cnf:ro
+    ports:
+      - "9104:9104"
+    networks:
+      - babi_network
+    depends_on:
+      mysql:
+        condition: service_healthy
+
 networks:
   babi_network:
     driver: bridge
