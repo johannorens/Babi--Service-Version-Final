@@ -15,7 +15,7 @@ Legend:
 
 babi-service-v2-back (debian 13.6)
 ==================================
-Total: 1201 (UNKNOWN: 32, LOW: 663, MEDIUM: 391, HIGH: 96, CRITICAL: 19)
+Total: 1201 (UNKNOWN: 32, LOW: 660, MEDIUM: 390, HIGH: 100, CRITICAL: 19)
 
 ┌───────────────────────────┬─────────────────────┬──────────┬──────────────┬──────────────────────────────────────┬───────────────┬──────────────────────────────────────────────────────────────┐
 │          Library          │    Vulnerability    │ Severity │    Status    │          Installed Version           │ Fixed Version │                            Title                             │
@@ -2708,12 +2708,27 @@ Total: 1201 (UNKNOWN: 32, LOW: 663, MEDIUM: 391, HIGH: 96, CRITICAL: 19)
 │                           │                     │          │              │                                      │               │ durable reconnect                                            │
 │                           │                     │          │              │                                      │               │ https://avd.aquasec.com/nvd/cve-2026-53010                   │
 │                           ├─────────────────────┤          │              │                                      ├───────────────┼──────────────────────────────────────────────────────────────┤
+│                           │ CVE-2026-53089      │          │              │                                      │               │ kernel: bpf: Fix use-after-free in offloaded map/prog info   │
+│                           │                     │          │              │                                      │               │ fill                                                         │
+│                           │                     │          │              │                                      │               │ https://avd.aquasec.com/nvd/cve-2026-53089                   │
+│                           ├─────────────────────┤          │              │                                      ├───────────────┼──────────────────────────────────────────────────────────────┤
 │                           │ CVE-2026-53091      │          │              │                                      │               │ kernel: net: pull headers in qdisc_pkt_len_segs_init()       │
 │                           │                     │          │              │                                      │               │ https://avd.aquasec.com/nvd/cve-2026-53091                   │
+│                           ├─────────────────────┤          │              │                                      ├───────────────┼──────────────────────────────────────────────────────────────┤
+│                           │ CVE-2026-53109      │          │              │                                      │               │ kernel: powerpc/pgtable-frag: Fix bad page state in          │
+│                           │                     │          │              │                                      │               │ pte_frag_destroy                                             │
+│                           │                     │          │              │                                      │               │ https://avd.aquasec.com/nvd/cve-2026-53109                   │
+│                           ├─────────────────────┤          │              │                                      ├───────────────┼──────────────────────────────────────────────────────────────┤
+│                           │ CVE-2026-53118      │          │              │                                      │               │ kernel: vdpa: use generic driver_override infrastructure     │
+│                           │                     │          │              │                                      │               │ https://avd.aquasec.com/nvd/cve-2026-53118                   │
 │                           ├─────────────────────┤          │              │                                      ├───────────────┼──────────────────────────────────────────────────────────────┤
 │                           │ CVE-2026-53277      │          │              │                                      │               │ kernel: KVM: arm64: Take the SRCU lock for page table walks  │
 │                           │                     │          │              │                                      │               │ in...                                                        │
 │                           │                     │          │              │                                      │               │ https://avd.aquasec.com/nvd/cve-2026-53277                   │
+│                           ├─────────────────────┤          │              │                                      ├───────────────┼──────────────────────────────────────────────────────────────┤
+│                           │ CVE-2026-53330      │          │              │                                      │               │ kernel: drm/amd/display: Fix out-of-bounds read in           │
+│                           │                     │          │              │                                      │               │ dp_get_eq_aux_rd_interval()                                  │
+│                           │                     │          │              │                                      │               │ https://avd.aquasec.com/nvd/cve-2026-53330                   │
 │                           ├─────────────────────┤          ├──────────────┤                                      ├───────────────┼──────────────────────────────────────────────────────────────┤
 │                           │ CVE-2026-53399      │          │ fixed        │                                      │ 6.12.96-1     │ kernel: nfsd: release layout stid on setlease failure        │
 │                           │                     │          │              │                                      │               │ https://avd.aquasec.com/nvd/cve-2026-53399                   │
@@ -3527,10 +3542,6 @@ Total: 1201 (UNKNOWN: 32, LOW: 663, MEDIUM: 391, HIGH: 96, CRITICAL: 19)
 │                           │                     │          │              │                                      │               │ leak in sock_ops...                                          │
 │                           │                     │          │              │                                      │               │ https://avd.aquasec.com/nvd/cve-2026-53078                   │
 │                           ├─────────────────────┤          │              │                                      ├───────────────┼──────────────────────────────────────────────────────────────┤
-│                           │ CVE-2026-53089      │          │              │                                      │               │ kernel: bpf: Fix use-after-free in offloaded map/prog info   │
-│                           │                     │          │              │                                      │               │ fill                                                         │
-│                           │                     │          │              │                                      │               │ https://avd.aquasec.com/nvd/cve-2026-53089                   │
-│                           ├─────────────────────┤          │              │                                      ├───────────────┼──────────────────────────────────────────────────────────────┤
 │                           │ CVE-2026-53090      │          │              │                                      │               │ kernel: bpf: Fix ld_{abs,ind} failure path analysis in       │
 │                           │                     │          │              │                                      │               │ subprogs                                                     │
 │                           │                     │          │              │                                      │               │ https://avd.aquasec.com/nvd/cve-2026-53090                   │
@@ -3547,6 +3558,12 @@ Total: 1201 (UNKNOWN: 32, LOW: 663, MEDIUM: 391, HIGH: 96, CRITICAL: 19)
 │                           │                     │          │              │                                      │               │ mt7925_roc_abort_sync                                        │
 │                           │                     │          │              │                                      │               │ https://avd.aquasec.com/nvd/cve-2026-53103                   │
 │                           ├─────────────────────┤          │              │                                      ├───────────────┼──────────────────────────────────────────────────────────────┤
+│                           │ CVE-2026-53104      │          │              │                                      │               │ kernel: wifi: mt76: Fix memory leak destroying device        │
+│                           │                     │          │              │                                      │               │ https://avd.aquasec.com/nvd/cve-2026-53104                   │
+│                           ├─────────────────────┤          │              │                                      ├───────────────┼──────────────────────────────────────────────────────────────┤
+│                           │ CVE-2026-53106      │          │              │                                      │               │ kernel: bpf: Do not allow deleting local storage in NMI      │
+│                           │                     │          │              │                                      │               │ https://avd.aquasec.com/nvd/cve-2026-53106                   │
+│                           ├─────────────────────┤          │              │                                      ├───────────────┼──────────────────────────────────────────────────────────────┤
 │                           │ CVE-2026-53107      │          │              │                                      │               │ kernel: wifi: libertas: don't kill URBs in interrupt context │
 │                           │                     │          │              │                                      │               │ https://avd.aquasec.com/nvd/cve-2026-53107                   │
 │                           ├─────────────────────┤          │              │                                      ├───────────────┼──────────────────────────────────────────────────────────────┤
@@ -3554,12 +3571,9 @@ Total: 1201 (UNKNOWN: 32, LOW: 663, MEDIUM: 391, HIGH: 96, CRITICAL: 19)
 │                           │                     │          │              │                                      │               │ entries                                                      │
 │                           │                     │          │              │                                      │               │ https://avd.aquasec.com/nvd/cve-2026-53108                   │
 │                           ├─────────────────────┤          │              │                                      ├───────────────┼──────────────────────────────────────────────────────────────┤
-│                           │ CVE-2026-53109      │          │              │                                      │               │ kernel: powerpc/pgtable-frag: Fix bad page state in          │
-│                           │                     │          │              │                                      │               │ pte_frag_destroy                                             │
-│                           │                     │          │              │                                      │               │ https://avd.aquasec.com/nvd/cve-2026-53109                   │
-│                           ├─────────────────────┤          │              │                                      ├───────────────┼──────────────────────────────────────────────────────────────┤
-│                           │ CVE-2026-53118      │          │              │                                      │               │ kernel: vdpa: use generic driver_override infrastructure     │
-│                           │                     │          │              │                                      │               │ https://avd.aquasec.com/nvd/cve-2026-53118                   │
+│                           │ CVE-2026-53113      │          │              │                                      │               │ kernel: wifi: ath11k: fix memory leaks in beacon template    │
+│                           │                     │          │              │                                      │               │ setup                                                        │
+│                           │                     │          │              │                                      │               │ https://avd.aquasec.com/nvd/cve-2026-53113                   │
 │                           ├─────────────────────┤          │              │                                      ├───────────────┼──────────────────────────────────────────────────────────────┤
 │                           │ CVE-2026-53178      │          │              │                                      │               │ kernel: staging: rtl8723bs: rtw_mlme: add bounds checks      │
 │                           │                     │          │              │                                      │               │ before ie_length subtraction                                 │
@@ -3609,10 +3623,6 @@ Total: 1201 (UNKNOWN: 32, LOW: 663, MEDIUM: 391, HIGH: 96, CRITICAL: 19)
 │                           ├─────────────────────┤          │              │                                      ├───────────────┼──────────────────────────────────────────────────────────────┤
 │                           │ CVE-2026-53321      │          │              │                                      │               │ kernel: io_uring/napi: cap busy_poll_to 10 msec              │
 │                           │                     │          │              │                                      │               │ https://avd.aquasec.com/nvd/cve-2026-53321                   │
-│                           ├─────────────────────┤          │              │                                      ├───────────────┼──────────────────────────────────────────────────────────────┤
-│                           │ CVE-2026-53330      │          │              │                                      │               │ kernel: drm/amd/display: Fix out-of-bounds read in           │
-│                           │                     │          │              │                                      │               │ dp_get_eq_aux_rd_interval()                                  │
-│                           │                     │          │              │                                      │               │ https://avd.aquasec.com/nvd/cve-2026-53330                   │
 │                           ├─────────────────────┤          │              │                                      ├───────────────┼──────────────────────────────────────────────────────────────┤
 │                           │ CVE-2026-53365      │          │              │                                      │               │ kernel: vsock/virtio: fix zerocopy completion for multi-skb  │
 │                           │                     │          │              │                                      │               │ sends                                                        │
@@ -4005,16 +4015,6 @@ Total: 1201 (UNKNOWN: 32, LOW: 663, MEDIUM: 391, HIGH: 96, CRITICAL: 19)
 │                           │ CVE-2025-68751      │          │              │                                      │               │ kernel: s390/fpu: Fix false-positive kmsan report in         │
 │                           │                     │          │              │                                      │               │ fpu_vstl()                                                   │
 │                           │                     │          │              │                                      │               │ https://avd.aquasec.com/nvd/cve-2025-68751                   │
-│                           ├─────────────────────┤          │              │                                      ├───────────────┼──────────────────────────────────────────────────────────────┤
-│                           │ CVE-2026-53104      │          │              │                                      │               │ kernel: wifi: mt76: Fix memory leak destroying device        │
-│                           │                     │          │              │                                      │               │ https://avd.aquasec.com/nvd/cve-2026-53104                   │
-│                           ├─────────────────────┤          │              │                                      ├───────────────┼──────────────────────────────────────────────────────────────┤
-│                           │ CVE-2026-53106      │          │              │                                      │               │ kernel: bpf: Do not allow deleting local storage in NMI      │
-│                           │                     │          │              │                                      │               │ https://avd.aquasec.com/nvd/cve-2026-53106                   │
-│                           ├─────────────────────┤          │              │                                      ├───────────────┼──────────────────────────────────────────────────────────────┤
-│                           │ CVE-2026-53113      │          │              │                                      │               │ kernel: wifi: ath11k: fix memory leaks in beacon template    │
-│                           │                     │          │              │                                      │               │ setup                                                        │
-│                           │                     │          │              │                                      │               │ https://avd.aquasec.com/nvd/cve-2026-53113                   │
 │                           ├─────────────────────┤          │              │                                      ├───────────────┼──────────────────────────────────────────────────────────────┤
 │                           │ CVE-2026-53284      │          │              │                                      │               │ kernel: btrfs: only release the dirty pages io tree after    │
 │                           │                     │          │              │                                      │               │ successful writes...                                         │
