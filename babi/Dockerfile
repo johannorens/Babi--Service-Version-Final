@@ -46,6 +46,8 @@ RUN apk add --no-cache \
 COPY --from=build /usr/local/lib/php/extensions /usr/local/lib/php/extensions
 COPY --from=build /usr/local/etc/php/conf.d /usr/local/etc/php/conf.d
 
+COPY security.ini /usr/local/etc/php/conf.d/security.ini
+
 WORKDIR /var/www/html
 
 COPY --from=build /var/www/html .
