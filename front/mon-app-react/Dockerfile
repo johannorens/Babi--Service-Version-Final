@@ -2,8 +2,13 @@ FROM node:20-alpine
 
 WORKDIR /app
 
+# Mise à jour des paquets système Alpine
+RUN apk update && apk upgrade --no-cache
+
 COPY package*.json ./
-RUN npm install
+
+# Installation reproductible des dépendances
+RUN npm ci
 
 COPY . .
 
