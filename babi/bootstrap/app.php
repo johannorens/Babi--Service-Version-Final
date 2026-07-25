@@ -15,17 +15,15 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__ . '/../routes/console.php',
         health: '/up',
     )
-
     ->withMiddleware(function (Middleware $middleware): void {
 
         $middleware->alias([
             'admin' => IsAdmin::class,
         ]);
-
-        // Middleware global de sécurité
+        
         $middleware->append(SecurityHeaders::class);
-    })
 
+    })
     ->withExceptions(function (Exceptions $exceptions): void {
 
         $exceptions->shouldRenderJsonWhen(
@@ -33,15 +31,12 @@ return Application::configure(basePath: dirname(__DIR__))
         );
 
         $exceptions->render(function (AuthenticationException $e, Request $request) {
-
             if ($request->is('api/*')) {
                 return response()->json([
                     'message' => 'Non authentifié'
                 ], 401);
             }
-
         });
 
     })
-
     ->create();
