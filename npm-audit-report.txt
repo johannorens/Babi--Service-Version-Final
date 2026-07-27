@@ -1,0 +1,36 @@
+# npm audit report
+
+brace-expansion  3.0.0 - 5.0.6
+Severity: high
+brace-expansion: DoS via exponential-time expansion of consecutive non-expanding {} groups - https://github.com/advisories/GHSA-3jxr-9vmj-r5cp
+fix available via `npm audit fix`
+node_modules/brace-expansion
+
+qs  6.11.1 - 6.15.1
+Severity: moderate
+qs has a remotely triggerable DoS: qs.stringify crashes with TypeError on null/undefined entries in comma-format arrays when encodeValuesOnly is set - https://github.com/advisories/GHSA-q8mj-m7cp-5q26
+fix available via `npm audit fix --force`
+Will install cypress@15.19.0, which is a breaking change
+node_modules/qs
+  @cypress/request  <=4.0.0
+  Depends on vulnerable versions of qs
+  Depends on vulnerable versions of uuid
+  node_modules/@cypress/request
+    cypress  13.15.0 - 15.14.2
+    Depends on vulnerable versions of @cypress/request
+    node_modules/cypress
+
+uuid  <11.1.1
+Severity: moderate
+uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided - https://github.com/advisories/GHSA-w5hq-g745-h8pq
+fix available via `npm audit fix --force`
+Will install cypress@15.19.0, which is a breaking change
+node_modules/uuid
+
+5 vulnerabilities (4 moderate, 1 high)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force

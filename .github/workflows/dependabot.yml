@@ -1,0 +1,24 @@
+version: 2
+updates:
+  # Backend Laravel (Composer)
+  - package-ecosystem: "composer"
+    directory: "/babi"
+    schedule:
+      interval: "weekly"
+
+  # Frontend React (npm)
+  - package-ecosystem: "npm"
+    directory: "/front/mon-app-react"
+    schedule:
+      interval: "weekly"
+
+  # Docker (images de base)
+  - package-ecosystem: "docker"
+    directory: "/babi"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "docker"
+    directory: "/front/mon-app-react"
+    schedule:
+      interval: "weekly"
