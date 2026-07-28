@@ -12,13 +12,13 @@ class SecurityHeaders
     {
         $response = $next($request);
 
-        // Content Security Policy
-        $response->headers->set(
-            'Content-Security-Policy',
-            "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self' data:;"
-        );
+        if (!$request->is('telescope*')) {
+            $response->headers->set(
+                'Content-Security-Policy',
+                "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.bunny.net; script-src 'self' 'unsafe-inline'; font-src 'self' data: https://fonts.bunny.net;"
+            );
+        }
 
-        // HSTS uniquement en HTTPS
         if ($request->secure()) {
             $response->headers->set(
                 'Strict-Transport-Security',

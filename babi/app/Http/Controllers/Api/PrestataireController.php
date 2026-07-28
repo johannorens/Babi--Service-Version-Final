@@ -8,7 +8,7 @@ use App\Http\Requests\Prestataire\StorePrestaireRequest;
 use App\Http\Requests\Prestataire\UpdatePrestaireRequest;
 use App\Http\Requests\Prestataire\CandidaturePrestataireRequest;
 
-class PrestaireController extends Controller
+class PrestataireController extends Controller
 {
     /**
      * Display a listing of the resource.
