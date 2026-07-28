@@ -20,19 +20,17 @@ class AdminDashboardController extends Controller
             'reservations_mois'  => Reservation::whereMonth('created_at', now()->month)
                 ->whereYear('created_at', now()->year)
                 ->count(),
-            'volume_traite'      => DB::table('reservations')
+            'volume_traite'   => DB::table('reservations')
                 ->join('services', 'reservations.id_service', '=', 'services.id_service')
                 ->whereMonth('reservations.created_at', now()->month)
                 ->sum('services.tarif'),
         ];
 
-        $reservations_par_mois = Reservation::whereYear('created_at', now()->year)
-            ->get()
-            ->groupBy(fn ($r) => $r->created_at->month)
-            ->map->count()
-            ->sortKeys()
-            ->map(fn ($total, $mois) => ['mois' => $mois, 'total' => $total])
-            ->values();
+        $reservations_par_mois = Reservation::selectRaw('MONTH(created_at) as mois, COUNT(*) as total')
+            ->whereYear('created_at', now()->year)
+            ->groupByRaw('MONTH(created_at)')
+            ->orderBy('mois')
+            ->get();
 
         $activite_recente = [
             'derniers_utilisateurs'  => Utilisateur::latest()->limit(5)->get(),
@@ -51,6 +49,7 @@ class AdminDashboardController extends Controller
             'activite_recente'      => $activite_recente,
             'a_valider'             => $a_valider,
         ]);
+        
     }
 
     public function validerPrestataire(string $id)
@@ -121,3 +120,4 @@ class AdminDashboardController extends Controller
         return response()->json($missions);
     }
 }
+// ff
