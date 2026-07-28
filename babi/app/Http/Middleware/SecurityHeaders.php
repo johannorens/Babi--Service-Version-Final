@@ -12,12 +12,11 @@ class SecurityHeaders
     {
         $response = $next($request);
 
-        if (!$request->is('telescope*')) {
             $response->headers->set(
-                'Content-Security-Policy',
-                "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.bunny.net; script-src 'self' 'unsafe-inline'; font-src 'self' data: https://fonts.bunny.net;"
-            );
-        }
+            'Content-Security-Policy',
+            "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self' data:;"
+        );
+
 
         if ($request->secure()) {
             $response->headers->set(
@@ -37,3 +36,5 @@ class SecurityHeaders
         return $response;
     }
 }
+
+
