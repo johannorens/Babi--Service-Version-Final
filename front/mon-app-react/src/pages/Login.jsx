@@ -1,59 +1,98 @@
-import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { apiLogin } from '../services/api'
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { apiLogin } from "../services/api";
 
 const ArrowLeftIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 20 20" fill="none">
-    <path d="M15.8333 10H4.16667M4.16667 10L9.16667 15M4.16667 10L9.16667 5" stroke="currentColor" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    viewBox="0 0 20 20"
+    fill="none"
+  >
+    <path
+      d="M15.8333 10H4.16667M4.16667 10L9.16667 15M4.16667 10L9.16667 5"
+      stroke="currentColor"
+      strokeWidth="1.66667"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
-)
+);
 
 const CheckIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 20 20" fill="none">
-    <path d="M16.6667 5L7.5 14.1667L3.33333 10" stroke="#059669" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="14"
+    height="14"
+    viewBox="0 0 20 20"
+    fill="none"
+  >
+    <path
+      d="M16.6667 5L7.5 14.1667L3.33333 10"
+      stroke="#059669"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
-)
+);
 
 const StarIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 20 20" fill="#FBBF24">
-    <path d="M10 1.66602L12.5729 6.87928L18.3333 7.7202L14.1667 11.7793L15.1459 17.5152L10 14.8127L4.85413 17.5152L5.83333 11.7793L1.66667 7.7202L7.42706 6.87928L10 1.66602Z"/>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    viewBox="0 0 20 20"
+    fill="#FBBF24"
+  >
+    <path d="M10 1.66602L12.5729 6.87928L18.3333 7.7202L14.1667 11.7793L15.1459 17.5152L10 14.8127L4.85413 17.5152L5.83333 11.7793L1.66667 7.7202L7.42706 6.87928L10 1.66602Z" />
   </svg>
-)
+);
 
 const GoogleIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none">
-    <path d="M18.1711 8.36791H9.99106V11.8189H14.7011C14.2811 13.9889 12.4111 15.2689 9.99106 15.2689C7.14106 15.2689 4.85106 13.0089 4.85106 10.0689C4.85106 7.12891 7.14106 4.86891 9.99106 4.86891C11.2511 4.86891 12.3911 5.32891 13.2711 6.07891L15.8511 3.49891C14.2711 2.07891 12.2411 1.21891 9.99106 1.21891C5.16106 1.21891 1.25106 5.12891 1.25106 9.95891C1.25106 14.7889 5.16106 18.6989 9.99106 18.6989C14.3411 18.6989 18.4011 15.5689 18.4011 9.95891C18.4011 9.41891 18.3411 8.88891 18.1711 8.36791Z" fill="currentColor"/>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="18"
+    height="18"
+    viewBox="0 0 20 20"
+    fill="none"
+  >
+    <path
+      d="M18.1711 8.36791H9.99106V11.8189H14.7011C14.2811 13.9889 12.4111 15.2689 9.99106 15.2689C7.14106 15.2689 4.85106 13.0089 4.85106 10.0689C4.85106 7.12891 7.14106 4.86891 9.99106 4.86891C11.2511 4.86891 12.3911 5.32891 13.2711 6.07891L15.8511 3.49891C14.2711 2.07891 12.2411 1.21891 9.99106 1.21891C5.16106 1.21891 1.25106 5.12891 1.25106 9.95891C1.25106 14.7889 5.16106 18.6989 9.99106 18.6989C14.3411 18.6989 18.4011 15.5689 18.4011 9.95891C18.4011 9.41891 18.3411 8.88891 18.1711 8.36791Z"
+      fill="currentColor"
+    />
   </svg>
-)
+);
 
 const checklist = [
-  '2 400+ prestataires vérifiés',
-  'Paiement Mobile Money sécurisé',
-  'Réservation en 2 clics'
-]
+  "2 400+ prestataires vérifiés",
+  "Paiement Mobile Money sécurisé",
+  "Réservation en 2 clics",
+];
 
 function Login() {
-  const navigate = useNavigate()
-  const [form, setForm] = useState({ email: '', mot_de_passe: '' })
-  const [error, setError] = useState('')
-  const [loading, setLoading] = useState(false)
+  const navigate = useNavigate();
+  const [form, setForm] = useState({ email: "", mot_de_passe: "" });
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   function handleChange(e) {
-    setForm({ ...form, [e.target.name]: e.target.value })
+    setForm({ ...form, [e.target.name]: e.target.value });
   }
 
   async function handleSubmit(e) {
-    e.preventDefault()
-    setError('')
-    setLoading(true)
-    const { ok, data } = await apiLogin(form)
+    e.preventDefault();
+    setError("");
+    setLoading(true);
+    const { ok, data } = await apiLogin(form);
     if (!ok) {
-      setError(data.message || 'Identifiants incorrects.')
-      setLoading(false)
-      return
+      setError(data.message || "Identifiants incorrects.");
+      setLoading(false);
+      return;
     }
-    localStorage.setItem('token', data.token)
-    navigate(data.user.role === 'admin' ? '/admin' : '/dashboard')
+    localStorage.setItem("token", data.token);
+    navigate(data.user.role === "admin" ? "/admin" : "/dashboard");
   }
 
   return (
@@ -62,7 +101,8 @@ function Login() {
         <div className="flex items-center gap-2">
           <div className="w-2.5 h-2.5 bg-white rounded-full"></div>
           <span className="text-xl font-extrabold font-bricolage">
-            <span className="text-white">babi</span> <span className="text-white/70">services</span>
+            <span className="text-white">babi</span>{" "}
+            <span className="text-white/70">services</span>
           </span>
         </div>
 
@@ -102,7 +142,10 @@ function Login() {
 
       <div className="lg:w-1/2 bg-babi-cream flex flex-col justify-center px-6 sm:px-12 lg:px-20 py-12">
         <div className="max-w-md w-full mx-auto">
-          <Link to="/" className="inline-flex items-center gap-2 text-gray-500 hover:text-babi-green transition-colors mb-8">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 text-gray-500 hover:text-babi-green transition-colors mb-8"
+          >
             <ArrowLeftIcon />
             Accueil
           </Link>
@@ -116,10 +159,14 @@ function Login() {
 
           <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
             {error && (
-              <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-xl px-4 py-2.5">{error}</p>
+              <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-xl px-4 py-2.5">
+                {error}
+              </p>
             )}
             <div>
-              <label className="block text-sm font-semibold text-babi-dark mb-1.5">Email</label>
+              <label className="block text-sm font-semibold text-babi-dark mb-1.5">
+                Email
+              </label>
               <input
                 type="email"
                 name="email"
@@ -131,7 +178,9 @@ function Login() {
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-babi-dark mb-1.5">Mot de passe</label>
+              <label className="block text-sm font-semibold text-babi-dark mb-1.5">
+                Mot de passe
+              </label>
               <input
                 type="password"
                 name="mot_de_passe"
@@ -148,8 +197,9 @@ function Login() {
               disabled={loading}
               className="w-full bg-gradient-to-r from-babi-green to-babi-green-light text-white font-bold py-3.5 rounded-2xl hover:-translate-y-1 hover:shadow-xl transition-all mt-2 disabled:opacity-60 disabled:hover:-translate-y-0"
             >
-              {loading ? 'Connexion...' : 'Se connecter'}
+              {loading ? "Connexion..." : "Se connecter"}
             </button>
+
           </form>
 
           <div className="flex items-center gap-3 my-6">
@@ -164,12 +214,18 @@ function Login() {
           </button>
 
           <p className="text-center text-gray-500 mt-6">
-            Pas encore de compte ? <Link to="/inscription" className="text-babi-green font-semibold hover:underline">Créer un compte</Link>
+            Pas encore de compte ?{" "}
+            <Link
+              to="/inscription"
+              className="text-babi-green font-semibold hover:underline"
+            >
+              Créer un compte
+            </Link>
           </p>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Login
+export default Login;

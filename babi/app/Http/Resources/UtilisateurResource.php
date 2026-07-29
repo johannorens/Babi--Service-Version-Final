@@ -15,10 +15,12 @@ class UtilisateurResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id' => $this->id,
+            'id_utilisateur' => $this->id_utilisateur,
             'nom' => $this->nom,
+            'prenom' => $this->prenom,
             'email' => $this->email,
             'telephone' => $this->telephone,
+            'adresse' => $this->adresse,
             'role' => $this->role,
             'avatar' => $this->avatar ? asset($this->avatar) : null,
         ];

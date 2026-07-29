@@ -17,6 +17,7 @@ import ReservationFormPage from './pages/ReservationFormPage'
 import MesReservationsPage from './pages/MesReservationsPage'
 import DevenirPrestataire from './pages/DevenirPrestataire'
 import ServiceDetailPage from './pages/ServiceDetailPage'
+import PolitiqueConfidentialite from './pages/PolitiqueConfidentialite'
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
       <Route path="/services" element={<ServicesPage />} />
       <Route path="/connexion" element={<Login />} />
       <Route path="/devenir-prestataire" element={<DevenirPrestataire />} />
+      <Route path="/politique-de-confidentialite" element={<PolitiqueConfidentialite />} />
       <Route
         path="/dashboard"
         element={
@@ -120,5 +122,3 @@ function App() {
 }
 
 export default App
-
-

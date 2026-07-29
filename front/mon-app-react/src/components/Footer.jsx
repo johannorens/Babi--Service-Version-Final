@@ -46,7 +46,8 @@ const footerColumns = [
       { label: "Centre d'aide", to: '/services' },
       { label: 'Nous contacter', to: '/devenir-prestataire' },
       { label: 'Sécurité', to: '/services' },
-      { label: 'Conditions', to: '/services' }
+      { label: 'Conditions', to: '/services' },
+      { label: 'Politique de confidentialité', to: '/politique-de-confidentialite' }
     ]
   }
 ]
