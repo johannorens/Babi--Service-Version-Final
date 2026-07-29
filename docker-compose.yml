@@ -92,7 +92,7 @@ services:
     container_name: babi_prometheus_V2
     restart: unless-stopped
     volumes:
-      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./Monitoring/.my.cnf:/cfg/.my.cnf:ro
       - prometheus_data:/prometheus
     ports:
       - "9090:9090"
@@ -124,7 +124,7 @@ services:
     command:
       - "--config.my-cnf=/cfg/.my.cnf"
     volumes:
-      - ./monitoring/.my.cnf:/cfg/.my.cnf:ro
+      - ./Monitoring/.my.cnf:/cfg/.my.cnf:ro
     ports:
       - "9104:9104"
     networks:
