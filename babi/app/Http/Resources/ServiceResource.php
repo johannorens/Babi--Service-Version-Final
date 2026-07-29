@@ -19,7 +19,7 @@ class ServiceResource extends JsonResource
             'nom_service' => $this->nom_service,
             'description' => $this->description,
             'tarif' => $this->tarif,
-            'photo' => $this->photo_path ? asset($this->photo_path) : null,
+            'photo_path' => $this->photo_path ? asset($this->photo_path) : null,
             'disponibilite' => $this->disponibilite,
             'id_categorie' => $this->id_categorie,
             'id_prestataire' => $this->id_prestataire,
