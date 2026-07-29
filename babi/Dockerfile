@@ -3,7 +3,7 @@
 #############################
 # BUILD STAGE
 #############################
-FROM php:8.4-cli-alpine AS build
+FROM php:8.5-cli-alpine AS build
 
 RUN apk add --no-cache \
         git \
@@ -37,7 +37,7 @@ RUN composer dump-autoload --optimize
 #############################
 # RUNTIME STAGE
 #############################
-FROM php:8.4-cli-alpine
+FROM php:8.5-cli-alpine
 
 RUN apk add --no-cache \
         libzip \
