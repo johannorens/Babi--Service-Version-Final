@@ -183,6 +183,7 @@ export const apiDeletePrestataire = async (id) => {
 
 export const apiCreateCategorie = async (data) => {
   const res = await fetch(`${API_URL}/api/categories`, {
+    
     method: 'POST',
     headers: getHeaders(),
     body: JSON.stringify(data),

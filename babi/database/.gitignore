@@ -1,1 +1,81 @@
-*.sqlite*
+# =========================
+# Laravel Backend
+# =========================
+
+/babi/vendor/
+/babi/node_modules/
+
+/babi/.env
+/babi/.env.*
+!/babi/.env.example
+
+/babi/storage/*.key
+/babi/storage/logs/*
+/babi/storage/framework/cache/*
+/babi/storage/framework/sessions/*
+/babi/storage/framework/views/*
+
+/babi/bootstrap/cache/*
+
+# Laravel Telescope
+/babi/storage/telescope/*
+
+# Tests
+/babi/.phpunit.result.cache
+/babi/coverage/
+
+
+# =========================
+# React Frontend
+# =========================
+
+/front/mon-app-react/node_modules/
+/front/mon-app-react/dist/
+/front/mon-app-react/.env
+/front/mon-app-react/.env.*
+
+
+# =========================
+# Docker
+# =========================
+
+*.log
+
+# Volumes Docker locaux
+mysql_data/
+prometheus_data/
+grafana_data/
+vendor_data/
+node_modules_data/
+
+
+# =========================
+# Monitoring
+# =========================
+
+# Ne pas ignorer les configs utiles
+!Monitoring/.my.cnf
+
+# Si tu as des dumps
+*.sql
+*.dump
+
+
+# =========================
+# IDE
+# =========================
+
+.vscode/
+.idea/
+
+*.swp
+*.swo
+
+
+# =========================
+# OS
+# =========================
+
+.DS_Store
+Thumbs.db
+

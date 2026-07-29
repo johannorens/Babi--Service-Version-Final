@@ -17,7 +17,7 @@ return [
 
     'allowed_origins' => [
         'http://localhost:5173',
-        'https://groupea-projet3-b3dev.onrender.com',
+        'https://front-production-2cc4.up.railway.app'
     ],
 
     'allowed_origins_patterns' => [],
