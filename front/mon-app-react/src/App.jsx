@@ -17,7 +17,7 @@ import ReservationFormPage from './pages/ReservationFormPage'
 import MesReservationsPage from './pages/MesReservationsPage'
 import DevenirPrestataire from './pages/DevenirPrestataire'
 import ServiceDetailPage from './pages/ServiceDetailPage'
-import PolitiqueConfidentialite from './pages/PolitiqueConfidentialite'
+import PolitiqueConfidentialite from "./pages/Politiqueconfidentialite"
 
 function App() {
   return (
